@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Sun, Moon, Menu, X, Building2, User, QrCode } from 'lucide-react';
+import { Shield, Sun, Moon, Menu, X, Building2, User, QrCode, Home } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 import { useWallet } from '../contexts/WalletContext';
 import { Button } from './ui/Button';
@@ -32,6 +32,7 @@ export const Navigation: React.FC<NavigationProps> = ({
   };
 
   const navigationItems = [
+    { id: 'landing', label: 'Home', icon: Home },
     { id: 'manufacturer', label: 'For Manufacturers', icon: Building2 },
     { id: 'user', label: 'For Users', icon: User },
     { id: 'qr-scan', label: 'QR Scanner', icon: QrCode },
