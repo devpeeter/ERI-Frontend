@@ -14,7 +14,7 @@ import { NotificationProvider } from './contexts/NotificationContext';
 function AppContent() {
   const { isDark } = useTheme();
   const [currentPage, setCurrentPage] = useState<'landing' | 'manufacturer' | 'user' | 'qr-scan'>('landing');
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true); // Changed to true by default
   const [activeFeature, setActiveFeature] = useState<string>('');
 
   // Handle URL parameters for QR code scanning
@@ -43,6 +43,13 @@ function AppContent() {
       window.removeEventListener('navigate-to-feature', handleNavigateToFeature as EventListener);
     };
   }, []);
+
+  // Auto-open sidebar when navigating to non-landing pages
+  useEffect(() => {
+    if (currentPage !== 'landing') {
+      setSidebarOpen(true);
+    }
+  }, [currentPage]);
 
   const renderCurrentPage = () => {
     switch (currentPage) {
