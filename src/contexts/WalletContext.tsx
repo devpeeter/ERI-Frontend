@@ -52,21 +52,26 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 
   const connectWallet = async (): Promise<void> => {
     try {
-      const { wallet } = await connect({
-        provider: PROVIDER
+      const connection = await connect({
+        webWalletUrl: "https://web.argent.xyz",
+        argentMobileOptions: {
+          dappName: "ERI Platform",
+          url: window.location.hostname,
+        },
       });
       
-      if (wallet && wallet.isConnected) {
-        setProvider(wallet.provider);
-        setAccount(wallet.account);
-        setAddress(wallet.selectedAddress);
-        toast.success(`Connected: ${wallet.selectedAddress!.slice(0, 10)}...`);
+      if (connection && connection.isConnected) {
+        setProvider(connection.provider);
+        setAccount(connection.account);
+        setAddress(connection.account.address);
+        toast.success(`Connected: ${connection.account.address.slice(0, 10)}...`);
       } else {
         toast.error("Failed to connect wallet");
       }
     } catch (error: unknown) {
+      console.error('Wallet connection error:', error);
       const message = error instanceof Error ? error.message : "Unknown error";
-      toast.error(`Error: ${message}`);
+      toast.error(`Connection failed: ${message}`);
     }
   };
 
@@ -78,8 +83,9 @@ export const WalletProvider: React.FC<{ children: React.ReactNode }> = ({ childr
       setAddress(null);
       toast.success("Wallet disconnected");
     } catch (error: unknown) {
+      console.error('Wallet disconnection error:', error);
       const message = error instanceof Error ? error.message : "Unknown error";
-      toast.error(`Error: ${message}`);
+      toast.error(`Disconnection failed: ${message}`);
     }
   };
 
