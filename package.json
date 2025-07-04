@@ -21,7 +21,7 @@
     "react-qr-scanner": "^1.0.0-alpha.11",
     "react-toastify": "^10.0.5",
     "starknet": "^6.24.1",
-    "starknetkit": "^1.1.9"
+    "starknetkit": "^2.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
