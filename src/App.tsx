@@ -14,7 +14,7 @@ import { NotificationProvider } from './contexts/NotificationContext';
 function AppContent() {
   const { isDark } = useTheme();
   const [currentPage, setCurrentPage] = useState<'landing' | 'manufacturer' | 'user' | 'qr-scan'>('landing');
-  const [sidebarOpen, setSidebarOpen] = useState(true); // Changed to true by default
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeFeature, setActiveFeature] = useState<string>('');
 
   // Handle URL parameters for QR code scanning
@@ -48,6 +48,8 @@ function AppContent() {
   useEffect(() => {
     if (currentPage !== 'landing') {
       setSidebarOpen(true);
+    } else {
+      setSidebarOpen(false);
     }
   }, [currentPage]);
 
