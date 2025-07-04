@@ -48,11 +48,11 @@ export const Navigation: React.FC<NavigationProps> = ({
         <div className="flex items-center justify-between h-16">
           {/* Left side */}
           <div className="flex items-center space-x-4">
-            {/* Sidebar toggle */}
+            {/* Sidebar toggle - with higher z-index to stay above sidebar */}
             {showSidebarToggle && (
               <button
                 onClick={onToggleSidebar}
-                className={`p-2 rounded-lg transition-colors duration-300 ${
+                className={`relative z-[60] p-2 rounded-lg transition-colors duration-300 ${
                   isDark 
                     ? 'text-green-400 hover:bg-green-500/10' 
                     : 'text-green-600 hover:bg-green-600/10'

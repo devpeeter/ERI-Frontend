@@ -94,12 +94,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
             className="fixed left-0 top-0 h-full w-64 bg-gray-900/95 backdrop-blur-xl border-r border-green-500/20 z-50 overflow-y-auto"
           >
             <div className="p-4">
-              {/* Header */}
+              {/* Header with close button */}
               <div className="flex items-center justify-between mb-8">
                 <h2 className="text-lg font-bold text-green-400">Navigation</h2>
                 <button
                   onClick={onClose}
-                  className="p-1 rounded-lg text-gray-400 hover:text-green-400 hover:bg-green-500/10 transition-colors lg:hidden"
+                  className="p-1 rounded-lg text-gray-400 hover:text-green-400 hover:bg-green-500/10 transition-colors"
                 >
                   <X className="w-5 h-5" />
                 </button>
