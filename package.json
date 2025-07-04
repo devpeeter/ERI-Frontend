@@ -13,6 +13,7 @@
     "@supabase/supabase-js": "^2.50.3",
     "bignumber.js": "^9.1.2",
     "framer-motion": "^10.16.16",
+    "jsqr": "^1.4.0",
     "lucide-react": "^0.344.0",
     "papaparse": "^5.5.3",
     "qrcode.react": "^4.2.0",
